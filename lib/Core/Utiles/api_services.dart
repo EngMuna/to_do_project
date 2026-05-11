@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
-  static const String _baseUrl = 'http://192.168.100.68:8000/api/';
+  static const String _baseUrl = 'https://jsonplaceholder.typicode.com/';
 
   final Dio _dio;
   final SharedPreferences sharedPreferences;

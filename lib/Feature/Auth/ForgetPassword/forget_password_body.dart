@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_project/Core/assets.dart/asset.dart';
+import 'package:to_do_project/Core/Spacer/spacer.dart';
+import 'package:to_do_project/Core/Styles/asset.dart';
 import 'package:to_do_project/Feature/Auth/Login/main_button.dart';
 
 class ForgetPasswordBody extends StatefulWidget {
@@ -20,26 +22,26 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(height: 50),
+            StaticSpacer.spacer50,
 
             Image.asset(Images.female),
-            SizedBox(height: 50),
+            StaticSpacer.spacer50,
             TextField(
               controller: emailController,
               decoration: InputDecoration(
-                hint: Text("Email"),
+                hint: Text("email".tr()),
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 50),
+            StaticSpacer.spacer50,
             MainButton(
-              text: "Reset Password",
+              text: "reset_password".tr(),
               onPressed: () async {
                 final email = emailController.text.trim();
 
                 if (email.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Please enter your email")),
+                    SnackBar(content: Text("please_enter_email".tr())),
                   );
                   return;
                 }
@@ -52,15 +54,15 @@ class _ForgetPasswordBodyState extends State<ForgetPasswordBody> {
                   emailController.clear();
 
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Check your email")),
+                    SnackBar(content: Text("check_your_email".tr())),
                   );
                 } on FirebaseAuthException catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text(e.message ?? "Error occurred")),
+                    SnackBar(content: Text(e.message ?? "error_occurred".tr())),
                   );
                 } catch (e) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Something went wrong")),
+                    SnackBar(content: Text("something_went_wrong".tr())),
                   );
                 }
               },

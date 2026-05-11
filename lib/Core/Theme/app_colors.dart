@@ -11,6 +11,12 @@ class AppColors {
     return Color(int.parse('33$color', radix: 16));
   }
 
+  static Color veryLightPinkBackground = const Color.fromARGB(
+    255,
+    227,
+    218,
+    226,
+  );
   static Color lightPinkBackground = const Color.fromARGB(255, 190, 130, 195);
 
   static Color mainColor = _colorFromHex('#6A11CB');

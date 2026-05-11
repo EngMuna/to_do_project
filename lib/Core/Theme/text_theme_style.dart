@@ -7,6 +7,6 @@ class TextThemeStyle {
   static void setTextTheme(BuildContext context) {
     textThemeStyle = Theme.of(
       context,
-    ).textTheme.apply(bodyColor: AppColors.mainColor, fontFamily: 'Cairo');
+    ).textTheme.apply(bodyColor: AppColors.white, fontFamily: 'Cairo');
   }
 }

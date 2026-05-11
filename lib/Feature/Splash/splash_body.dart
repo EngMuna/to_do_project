@@ -1,7 +1,10 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:to_do_project/Core/assets.dart/asset.dart';
+import 'package:to_do_project/Core/Spacer/spacer.dart';
+import 'package:to_do_project/Core/Theme/app_colors.dart';
+import 'package:to_do_project/Core/Styles/asset.dart';
+import 'package:to_do_project/Core/Theme/text_theme_style.dart';
 import 'package:to_do_project/Feature/Auth/Login/login_screen.dart';
 import 'package:to_do_project/Feature/Home/home_screen.dart';
 
@@ -38,30 +41,22 @@ class _SplashBodyState extends State<SplashBody> {
     return Scaffold(
       body: Container(
         width: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+        decoration: BoxDecoration(color: AppColors.lightPinkBackground),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(Images.female),
 
-            const SizedBox(height: 20),
+            StaticSpacer.spacer20,
 
-            const Text(
-              "To Do",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
+            Text(
+              "To Do App",
+              style: TextThemeStyle.textThemeStyle.titleLarge!.copyWith(
+                fontWeight: FontWeight.w700,
               ),
             ),
 
-            const SizedBox(height: 30),
+            StaticSpacer.spacer32,
           ],
         ),
       ),

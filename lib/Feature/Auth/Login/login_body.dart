@@ -1,8 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:to_do_project/Core/app_colors.dart';
-import 'package:to_do_project/Core/assets.dart/asset.dart';
+import 'package:to_do_project/Core/Spacer/spacer.dart';
+import 'package:to_do_project/Core/Theme/app_colors.dart';
+import 'package:to_do_project/Core/Styles/asset.dart';
+import 'package:to_do_project/Core/Theme/text_theme_style.dart';
 import 'package:to_do_project/Feature/Auth/ForgetPassword/forget_password_screen.dart';
 import 'package:to_do_project/Feature/Auth/Login/main_button.dart';
 import 'package:to_do_project/Feature/Auth/signup/signup_screen.dart';
@@ -26,26 +29,25 @@ class _LoginBodyState extends State<LoginBody> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(height: 50),
-
+            StaticSpacer.spacer50,
             Image.asset(Images.female),
-            SizedBox(height: 50),
+            StaticSpacer.spacer50,
             TextField(
               controller: emailController,
               decoration: InputDecoration(
-                hint: Text("Email"),
+                hint: Text("email".tr()),
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 20),
+            StaticSpacer.spacer20,
             TextField(
               controller: passwordController,
               decoration: InputDecoration(
-                hint: Text("Password"),
+                hint: Text("password".tr()),
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 7),
+            StaticSpacer.spacer8,
             Align(
               alignment: Alignment.centerRight,
               child: GestureDetector(
@@ -58,17 +60,17 @@ class _LoginBodyState extends State<LoginBody> {
                   );
                 },
                 child: Text(
-                  "Forget Password",
-                  style: TextStyle(
+                  "forget_password".tr(),
+                  style: TextThemeStyle.textThemeStyle.bodyMedium!.copyWith(
                     color: AppColors.lightPinkBackground,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 50),
+            StaticSpacer.spacer50,
             MainButton(
-              text: 'Login',
+              text: 'login'.tr(),
               onPressed: () async {
                 UserCredential? credential;
                 try {
@@ -78,12 +80,12 @@ class _LoginBodyState extends State<LoginBody> {
                         password: passwordController.text,
                       );
                 } on FirebaseAuthException catch (e) {
-                  if (e.code == 'user-not-found') {
+                  if (e.code == "no_user_found".tr()) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text("No user found for that email.")),
                     );
                     print('No user found for that email.');
-                  } else if (e.code == 'wrong-password') {
+                  } else if (e.code == "wrong_password".tr()) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text("Wrong password provided for that user."),
@@ -94,7 +96,7 @@ class _LoginBodyState extends State<LoginBody> {
                 }
                 if (credential == null) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Something went wrong")),
+                    SnackBar(content: Text("something_went_wrong".tr())),
                   );
                 } else {
                   final SharedPreferences prefs =
@@ -105,26 +107,12 @@ class _LoginBodyState extends State<LoginBody> {
                     MaterialPageRoute(builder: (context) => const HomeScreen()),
                   );
                 }
-                // else {
-                //   if (credential.user!.emailVerified) {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) => const HomeScreen(),
-                //       ),
-                //     );
-                //   } else {
-                //     ScaffoldMessenger.of(context).showSnackBar(
-                //       SnackBar(content: Text("please verify your email")),
-                //     );
-                //   }
-                // }
               },
               width: double.infinity,
             ),
-            SizedBox(height: 20),
+            StaticSpacer.spacer20,
             MainButton(
-              text: 'Signup',
+              text: 'signup'.tr(),
               onPressed: () {
                 Navigator.push(
                   context,

@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:to_do_project/Core/app_colors.dart';
-import 'package:to_do_project/Core/assets.dart/asset.dart';
+import 'package:to_do_project/Core/Spacer/spacer.dart';
+import 'package:to_do_project/Core/Theme/app_colors.dart';
+import 'package:to_do_project/Core/Styles/asset.dart';
 import 'package:to_do_project/Feature/Auth/Login/login_screen.dart';
 import 'package:to_do_project/Feature/Auth/Login/main_button.dart';
 
@@ -25,57 +27,57 @@ class _SignUpBodyState extends State<SignUpBody> {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            SizedBox(height: 50),
+            StaticSpacer.spacer50,
 
             Image.asset(Images.female),
-            SizedBox(height: 50),
+            StaticSpacer.spacer50,
             TextField(
               controller: nameController,
               decoration: InputDecoration(
-                hint: Text("Name"),
+                hint: Text("name".tr()),
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 20),
+            StaticSpacer.spacer20,
             TextField(
               controller: emailController,
               decoration: InputDecoration(
-                hint: Text("Email"),
+                hint: Text("email".tr()),
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 20),
+            StaticSpacer.spacer20,
             TextField(
               controller: passwordController,
               decoration: InputDecoration(
-                hint: Text("Password"),
+                hint: Text("password".tr()),
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 20),
+            StaticSpacer.spacer20,
             TextField(
               controller: confirmPasswordController,
               decoration: InputDecoration(
-                hint: Text("Confirm Password"),
+                hint: Text("confirm_password".tr()),
                 border: OutlineInputBorder(),
               ),
             ),
 
-            SizedBox(height: 50),
+            StaticSpacer.spacer50,
             MainButton(
-              text: 'Signup',
+              text: 'signup'.tr(),
               onPressed: () async {
                 if (emailController.text.isEmpty ||
                     passwordController.text.isEmpty ||
                     confirmPasswordController.text.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Please fill all fields")),
+                    SnackBar(content: Text("please_fill_all_fields".tr())),
                   );
                   return;
                 }
                 if (passwordController.text != confirmPasswordController.text) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Passwords do not match")),
+                    SnackBar(content: Text("passwords_do_not_match".tr())),
                   );
                   return;
                 }
@@ -83,14 +85,14 @@ class _SignUpBodyState extends State<SignUpBody> {
                     passwordController.text.isEmpty ||
                     confirmPasswordController.text.isEmpty) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Please fill all fields")),
+                    SnackBar(content: Text("please_fill_all_fields".tr())),
                   );
                   return;
                 }
 
                 if (passwordController.text != confirmPasswordController.text) {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Passwords do not match")),
+                    SnackBar(content: Text("passwords_do_not_match".tr())),
                   );
                   return;
                 }
@@ -112,11 +114,11 @@ class _SignUpBodyState extends State<SignUpBody> {
                     );
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text("Something went wrong")),
+                      SnackBar(content: Text("something_went_wrong".tr())),
                     );
                   }
                 } on FirebaseAuthException catch (e) {
-                  if (e.code == 'weak-password') {
+                  if (e.code == "weak_password".tr()) {
                     print('The password provided is too weak.');
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -126,11 +128,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                   } else if (e.code == 'email-already-in-use') {
                     print('The account already exists for that email.');
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: Text(
-                          "The account already exists for that email.",
-                        ),
-                      ),
+                      SnackBar(content: Text("email_already_in_use".tr())),
                     );
                   }
                 } catch (e) {
@@ -139,10 +137,10 @@ class _SignUpBodyState extends State<SignUpBody> {
               },
               width: double.infinity,
             ),
-            SizedBox(height: 10),
+            StaticSpacer.spacer8,
             RichText(
               text: TextSpan(
-                text: "already_have_account",
+                text: "${"already_have_account".tr()} ",
                 style: TextStyle(color: Colors.black),
                 children: [
                   WidgetSpan(
@@ -154,7 +152,7 @@ class _SignUpBodyState extends State<SignUpBody> {
                         ),
                       ),
                       child: Text(
-                        "login",
+                        "login".tr(),
                         style: TextStyle(
                           color: AppColors.lightPinkBackground,
                           fontWeight: FontWeight.bold,

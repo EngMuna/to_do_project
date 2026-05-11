@@ -1,0 +1,39 @@
+{
+  "email": "البريد الإلكتروني",
+  "reset_password": "إعادة تعيين كلمة المرور",
+  "please_enter_email": "الرجاء إدخال البريد الإلكتروني",
+  "check_your_email": "تحقق من بريدك الإلكتروني",
+  "error_occurred": "حدث خطأ",
+  "something_went_wrong": "حدث خطأ ما",
+ 
+  "password": "كلمة المرور",
+  "forget_password": "نسيت كلمة المرور",
+  "login": "تسجيل الدخول",
+  "signup": "إنشاء حساب",
+  "no_user_found": "لا يوجد مستخدم لهذا البريد الإلكتروني",
+  "wrong_password": "كلمة المرور غير صحيحة",
+
+  "name": "الاسم",
+  "confirm_password": "تأكيد كلمة المرور",
+  "already_have_account": "لديك حساب بالفعل؟",
+  "please_fill_all_fields": "يرجى تعبئة جميع الحقول",
+  "passwords_do_not_match": "كلمات المرور غير متطابقة",
+  "weak_password": "كلمة المرور ضعيفة جدًا",
+  "email_already_in_use": "الحساب موجود بالفعل لهذا البريد الإلكتروني",
+
+   "my_todo_list": "قائمة المهام",
+  "add_todo": "إضافة مهمة",
+  "enter_todo_title": "أدخل عنوان المهمة",
+  "cancel": "إلغاء",
+  "add": "إضافة",
+  "update": "تعديل",
+  "delete": "حذف",
+  "update_todo": "تعديل المهمة",
+  "enter_new_title": "أدخل العنوان الجديد",
+  "delete_todo": "حذف المهمة؟",
+  "are_you_sure_delete": "هل أنت متأكد من حذف هذه المهمة؟",
+  "todo_added_successfully": "تمت إضافة المهمة بنجاح",
+  "todo_updated_successfully": "تم تعديل المهمة بنجاح",
+  "todo_deleted_successfully": "تم حذف المهمة بنجاح"
+
+}

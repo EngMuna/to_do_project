@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:to_do_project/Core/app_colors.dart';
-import 'package:to_do_project/Core/text_theme_style.dart';
+import 'package:to_do_project/Core/Theme/app_colors.dart';
+import 'package:to_do_project/Core/Theme/text_theme_style.dart';
 
 class AppStyles {
   static InputDecoration formStyle(
